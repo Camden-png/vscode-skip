@@ -143,8 +143,11 @@
           }
         },
         {
-          "match": "(?<!\\bfun[[:space:]]+|\\.)\\b(chill|concurrent|memoized|null|watch)\\b",
-          "name": "invalid.deprecated.skip"
+          "match": "(?:\\bfun +|\\.)(chill|concurrent|memoized|null|watch)\\b|\\b(chill|concurrent|memoized|null|watch)\\b",
+          "captures": {
+            "1": { "name": "keyword.other.skip" },
+            "2": { "name": "invalid.deprecated.skip" }
+          }
         },
         {
           "comment": "Misplaced keyword already matched by another rule.",
